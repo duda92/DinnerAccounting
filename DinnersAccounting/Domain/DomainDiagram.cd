@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataModel.Person">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAMAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="PersonInfo" />
+      <Field Name="Role" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataModel.Product">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Order">
+    <Position X="12.75" Y="2.25" Width="1.5" />
+    <AssociationLine Name="Statuses" Type="DataModel.OrderStatus" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.094" Y="3.738" />
+        <Point X="13.094" Y="4.597" />
+        <Point X="11.335" Y="4.597" />
+        <Point X="11.335" Y="6" />
+        <Point X="11.438" Y="6" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAEAAEABAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="CurrentStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Statuses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataModel.OrderDetail">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <AssociationLine Name="Product" Type="DataModel.Product" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="1.694" />
+        <Point X="10.125" Y="1.694" />
+        <Point X="10.125" Y="3" />
+        <Point X="8.75" Y="3" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>OrderDetail.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Order" />
+      <Field Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataModel.ProductProposition">
+    <Position X="4.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAACAAAAAAAAAAgAAAAAAAAAAAAAEAAAAQ=</HashCode>
+      <FileName>ProductProposition.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataModel.PersonAccount">
+    <Position X="16.25" Y="1" Width="1.5" />
+    <AssociationLine Name="Person" Type="DataModel.Person" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.25" Y="1.351" />
+        <Point X="14.93" Y="1.351" />
+        <Point X="14.93" Y="0.351" />
+        <Point X="2" Y="0.351" />
+        <Point X="2" Y="0.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PersonAccount.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Person" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Operations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DataModel.AccountOperation">
+    <Position X="16" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABAAAAgAAAAAA=</HashCode>
+      <FileName>AccountOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.DebitOperation">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DebitOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.CreditOperation">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreditOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.OrderStatus">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAgAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>OrderStatus.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="StatusValue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataModel.PersonInfo">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PersonInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Role">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DataModel.OrderStatusValue">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAEAAAAAAAACAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrderStatusValue.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
