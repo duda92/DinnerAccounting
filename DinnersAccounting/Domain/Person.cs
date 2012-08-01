@@ -10,5 +10,6 @@ namespace DataModel
         public string DomainID;
         public PersonInfo PersonInfo;
         public Role Role;
+        public PersonAccount PersonAccount;
     }
 }

@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IPersonRepository.cs" />
+    <Compile Include="Abstract\IProductPropositionRepository.cs" />
+    <Compile Include="Abstract\IOrderRepository.cs" />
+    <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="AccountOperation.cs" />
+    <Compile Include="Concrete\FakeOrderRepository.cs" />
+    <Compile Include="Concrete\FakePersonRepository.cs" />
+    <Compile Include="Concrete\FakeProductPropositionRepository.cs" />
+    <Compile Include="Concrete\FakeProductRepository.cs" />
     <Compile Include="CreditOperation.cs" />
     <Compile Include="OrderStatusValue.cs" />
     <Compile Include="Person.cs" />
@@ -58,6 +69,7 @@
   <ItemGroup>
     <None Include="DomainDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
