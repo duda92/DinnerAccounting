@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DA.Dinners.Domain.Person>
+
+
+<script src="../../Scripts/AdminOperationsBalance/aply_ui.js" type="text/javascript"></script>
+<script src="../../Scripts/AdminOperationsBalance/history.js" type="text/javascript"></script>
+<script src="../../Scripts/AdminOperationsBalance/order-popup.js" type="text/javascript"></script>
+<script src="../../Scripts/api/Order.js" type="text/javascript"></script>
+<script src="../../Scripts/Model/Order.js" type="text/javascript"></script>
+<script src="../../Scripts/AdminOperationsBalance/aply_ui.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var viewModel = {};
+
+    function PageScript() {
+        var dialog = $('#order');
+        var peopleList = $('#people_list_ol');
+        viewModel = { Order: getEmptyObservableOrder(), dialog: dialog, people_list: peopleList, orderReadOnly: true };
+        apply_ui();
+        ko.applyBindings(viewModel);
+    }
+</script>
+
+<div>  
+    <div id="people_list_div" class="inline-block people_list_div">
+        <ol id="people_list_ol" class="people_list_ol">
+            @foreach (var person in Model.OrderBy(p => p.GetName()))
+            {
+                <li class="ui-widget-content" id="@person.Id" balance="@person.Balance">@person.GetName()</li>
+            }
+        </ol>
+    </div>
+
+    <div id="operations_div" class="inline-block operations_div">
+        <fieldset>
+            <legend id="name_of_selected"></legend>
+            <dl>
+                <dt>
+                    <label>
+                        Текущий баланс:
+                    </label>
+                </dt>
+                <dt>
+                    <label id="balance_of_selected">
+                    </label>
+                    <label>
+                        грн.</label>
+                </dt>
+            </dl>
+            <dl>
+                <dt>
+                    <label>
+                        Сумма
+                    </label>
+                </dt>
+                <dd>
+                    <input type="text" name="Title" id="amount" class="enter-sum-input" />
+                    <label id="enter_sum_validation_title">
+                        Введите корректную сумму операции
+                    </label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <label>
+                        Комментарий
+                    </label>
+                </dt>
+                <dd>
+                    <textarea rows="10" cols="45" type="text" name="Summary" id="summary" class="edit_create_product_input"></textarea>
+                </dd>
+            </dl>
+            <div>
+                <input type="text" name="Id" style="display: none" id="person_id" />
+            </div>
+            <dl>
+                <dd>
+                    <button id="create_operation_button" onclick="create_operation();"
+                            class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                            role="button">Сохранить</button>
+                </dd>
+            </dl>
+            <dl>
+                <dd id="history">
+                </dd>
+            </dl>
+        </fieldset>
+    </div>
+</div>
+
+<div id="order" class="inline-block ui-corner-all order popup-order">
+     <div  data-bind="template: { name: 'Order', data: Order }"></div>
+</div> 

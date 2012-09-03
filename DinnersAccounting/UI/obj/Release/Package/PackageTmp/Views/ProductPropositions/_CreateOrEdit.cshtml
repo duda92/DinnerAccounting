@@ -1,0 +1,37 @@
+@model DA.Dinners.Domain.ProductProposition
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+@*<div class="editor-label">
+    @Html.LabelFor(model => model.NextPropositionId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.NextPropositionId)
+    @Html.ValidationMessageFor(model => model.NextPropositionId)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PrevPropositionId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PrevPropositionId)
+    @Html.ValidationMessageFor(model => model.PrevPropositionId)
+</div>
+*@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.StartDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.StartDate)
+    @Html.ValidationMessageFor(model => model.StartDate)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.EndDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.EndDate)
+    @Html.ValidationMessageFor(model => model.EndDate)
+</div>
+

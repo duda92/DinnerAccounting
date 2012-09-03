@@ -1,0 +1,31 @@
+﻿#select_proposition_div
+{
+    position: relative;
+}
+
+#main
+{
+    left: 30%;
+}
+
+#date_select
+{
+    height: 20px;
+    width: 190px;
+}
+
+#order
+{
+    overflow: auto;
+}
+
+h4
+{
+    display: inline-block;
+}
+
+h5
+{
+    padding-left: 40px;
+    font-style: italic;
+}

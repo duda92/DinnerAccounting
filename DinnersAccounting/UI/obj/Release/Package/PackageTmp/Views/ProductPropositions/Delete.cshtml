@@ -1,0 +1,35 @@
+@model DA.Dinners.Domain.ProductProposition
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ProductProposition</legend>
+
+    <div class="display-label">NextPropositionId</div>
+    <div class="display-field">@Model.NextPropositionId</div>
+
+    <div class="display-label">PrevPropositionId</div>
+    <div class="display-field">@Model.PrevPropositionId</div>
+
+    <div class="display-label">Products</div>
+    <div class="display-field">@(Model.Products == null ? "None" : Model.Products.Count.ToString())</div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.StartDate)</div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.EndDate)</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

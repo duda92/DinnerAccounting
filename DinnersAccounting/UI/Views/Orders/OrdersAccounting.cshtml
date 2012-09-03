@@ -1,0 +1,148 @@
+﻿@*<link href="../../Styles/user_menu.css" rel="stylesheet" type="text/css" />
+*@<script src="../../Scripts/PropositionsScripts/products_sort.js" type="text/javascript"></script>
+<script src="../../Scripts/Model/Order.js" type="text/javascript"></script>
+<script src="../../Scripts/Model/OrderDetail.js" type="text/javascript"></script>
+<script src="../../Scripts/Model/OrderStatus.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Model/AdaptedDayProposition.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Model/Day.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Model/Status.js" type="text/javascript"></script>
+<script src="../../Scripts/Model/Person.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Binding/treeview.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Binding/accordion.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/ViewModel.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/Subscribing/dates.js" type="text/javascript"></script>
+<script src="../../Scripts/api/order.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/api/DaysList.js" type="text/javascript"></script>
+<script src="../../Scripts/orders_accounting/api/DayStatus.js" type="text/javascript"></script>
+<script src="../../Scripts/api/Person.js" type="text/javascript"></script>
+<link href="../../Styles/orders_operations.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    function PageScript() {
+
+        
+        ko.applyBindings(viewModel);
+        $('.treeview').treeview();
+        $("#start_date_input").datepicker();
+        $("#end_date_input").datepicker();
+    }
+</script>
+<div id="dates">
+    <div style="display: inline-block">
+        <p>
+            Начальная дата:</p>
+        <input id="start_date_input" type="text" data-bind="value: DateStart" />
+    </div>
+    <div style="display: inline-block">
+        <p>
+            Конечная дата:</p>
+        <input id="end_date_input" type="text" data-bind="value: DateEnd" />
+    </div>
+    <div>
+        <label id="date_range_select_validation" >
+            Начальная дата должна быть меньше конечной</label>
+    </div>
+</div>
+<div id="main">
+    <div class="inline-block accordion">
+        <div id="accordion-menues" data-bind="foreach: DaysList, accordion:{}" class="accordion main-widget ui-accordion .ui-accordion-content-active">
+            <h3 data-bind="attr: { date: Date }">
+                <a href="#" data-bind="html: display_date"></a>
+            </h3>
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <b>Текущий статус : </b>
+                            </td>
+                            <td data-bind="html: Status().DisplayStatus">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Новый статус : </b>
+                            </td>
+                            <td data-bind="if: Status().AvaliableStatuses.length != 0">
+                                <select id="date_select" data-bind=" options: Status().AvaliableStatuses,
+                            optionsText: function(item) { return Status().StatusToText(item);},
+                            value: Status().StatusValue">
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only save-day-status-button"
+                        data-bind="click: viewModel.ApplyStatus">Сохранить</button>
+            </div>
+        </div>
+    </div>
+    <div class="inline-block orders-table main-widget" data-bind="if: viewModel.ChosenDay() != ''">
+        <table id="otbl" data-bind="foreach: viewModel.ChosenDay().Orders()">
+            <tr>
+                <td>
+                    <div id="userinfo">
+                        <b data-bind="html: Person.DomainName"></b>
+                        <br />
+                        Balance: <b data-bind="html: Person.Balance"></b>
+                    </div>
+                </td>
+                <td class="otd">
+                    <div class="order inline-block  ui-corner-all">
+                        <div data-bind="template: { name: 'OrderHeader' }"></div>
+                        <div data-bind="template: { name: 'Order' }"></div>
+                        <div data-bind="template: { name: 'OrderOperationsAdmin' }"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="inline-block day-proposition main-widget order ui-corner-all main-widget ui-accordion .ui-accordion-content-active"
+         data-bind="if:viewModel.HasOrderChanges(), treeview: {}">
+        <ul class="treeview">
+            <li class="collapsable"><span class="collapsed_first">Комплексы</span>
+                <ul data-bind="foreach: ChosenDay().Proposition.Complexes">
+                    <li><b data-bind="html: Title"></b>
+                        <h5 data-bind="html: Summary">
+                        </h5><br />
+                        <b id="pricelbl">Цена: </b>
+                        <h4 data-bind="html: Price">
+                        </h4>
+                        <a title="Добавить в заказ" href="#" data-bind="click: viewModel.ChosenOrder().addToOrder">
+                            <div id="btnaddcontainer">
+                                <img id="btnadd" src="../Scripts/images/add_to_order.png"></div>
+                        </a></li>
+                </ul>
+            </li>
+            <li class="collapsable"><span>Также сегодня в меню</span>
+                <ul data-bind="foreach: ChosenDay().Proposition.Also">
+                    <li><b data-bind="html: Title"></b>
+                        <h4 data-bind="html: Summary">
+                        </h4>    <br />
+                        <b id="pricelbl">Цена: </b>
+                        <h4 data-bind="html: Price">
+                        </h4>
+                        <a title="Добавить в заказ" href="#" data-bind="click: viewModel.ChosenOrder().addToOrder">
+                            <div id="btnaddcontainer">
+                                <img id="btnadd" src="../Scripts/images/add_to_order.png"></div>
+                        </a></li>
+                </ul>
+            </li>
+            <li class="collapsable"><span>Ежедневно в меню</span>
+                <ul data-bind="foreach: ChosenDay().Proposition.EveryDay">
+                    <li><b data-bind="html: Title"></b>
+                        <h4 data-bind="html: Summary">
+                        </h4>    <br />
+                        <b id="pricelbl">Цена: </b>
+                        <h4 data-bind="html: Price">
+                        </h4>
+                        <a title="Добавить в заказ" href="#" data-bind="click: viewModel.ChosenOrder().addToOrder">
+                            <div id="btnaddcontainer">
+                                <img id="btnadd" src="../Scripts/images/add_to_order.png" alt="">
+                            </div>
+                        </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <ul data-bind="foreach: OrderDetails()" class="order-content">
+        <li id="listofprods">
+            <div class="product-title inline-block" data-bind="html: Product.Title">
+            </div>
+            <div class="product-quantity inline-block" data-bind="html: Quantity">
+            </div>
+            <div class="product-price inline-block">
+                <b data-bind="html: Product.Price"></b>
+            </div>
+            <div class="delete-link inline-block" data-bind="if : $parent.Editable">
+                <a title="Delete" href="#" data-bind=" click: $parent.removeDetail">
+                    <img id="deletebtn" src="../Scripts/images/delete.png">
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

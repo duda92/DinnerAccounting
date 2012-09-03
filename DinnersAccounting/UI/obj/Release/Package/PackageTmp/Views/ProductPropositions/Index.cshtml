@@ -1,0 +1,59 @@
+@model IEnumerable<DA.Dinners.Domain.ProductProposition>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            NextPropositionId
+        </th>
+        <th>
+            PrevPropositionId
+        </th>
+        <th>
+            Products
+        </th>
+        <th>
+            StartDate
+        </th>
+        <th>
+            EndDate
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductPropositionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductPropositionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductPropositionID })
+        </td>
+        <td>
+			@item.NextPropositionId
+        </td>
+        <td>
+			@item.PrevPropositionId
+        </td>
+        <td>
+			@(item.Products == null ? "None" : item.Products.Count.ToString())
+        </td>
+        <td>
+			@String.Format("{0:g}", item.StartDate)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.EndDate)
+        </td>
+    </tr>
+}
+
+</table>
+
+

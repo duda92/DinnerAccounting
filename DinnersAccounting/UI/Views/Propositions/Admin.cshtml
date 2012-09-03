@@ -1,0 +1,172 @@
+﻿@using DA.Dinners.Model
+@*
+javascript:
+*@
+<script src="@Url.Content("~/Scripts/PropositionsScripts/product_changing.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/PropositionsScripts/displaying_panels.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/PropositionsScripts/apply_ui.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/PropositionsScripts/variables.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/PropositionsScripts/validation.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/PropositionsScripts/products_sort.js")" type="text/javascript"></script>
+
+
+<script src="../../Scripts/admin_menu/ObservableModel/DayProposition.js" type="text/javascript"></script>
+<script src="../../Scripts/admin_menu/ObservableModel/Product.js" type="text/javascript"></script>
+<script src="../../Scripts/admin_menu/ObservableModel/ContinuousProposition.js" type="text/javascript"></script>
+<script src="../../Scripts/admin_menu/ViewModel.js" type="text/javascript"></script>
+
+<script src="../../Scripts/admin_menu/Binding/accordion.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+    function PageScript() {
+
+        //hide_panels();
+
+        ko.applyBindings(viewModel);
+
+
+        viewModel.ChosenContinuousPropositionId.subscribe(function (obj) {
+            viewModel.ChosenContinuousProposition(new ContinuousProposition(getContinuousProposition(parseInt(obj.Id))));
+        });
+    }
+</script>
+
+<div id="select_proposition_div">
+    <h2 id="controlpanel">
+        Предложения :
+         <select id="date_select" data-bind="options: ContinuousPropositionDatesList,
+            optionsText: function(item) { return item.Dates;},
+            value: ChosenContinuousPropositionId">
+        </select>
+        
+        <a href="#" onclick="add_continuous_proposition();" title="Добавить предложение">
+            <img id="addbtn"src="@Url.Content("~/Scripts/images/add.png")" /></a>
+    </h2>
+</div>
+
+<div id="create_proposition_dialog" title="Select dates range">
+    <dl>
+        <dt>Начальная дата:</dt>
+        <dd style="width: auto;">
+            <input id="create_proposition_start_date" type="text" />
+        </dd>
+    </dl>
+    <dl>
+        <dt>Конечная дата:</dt>
+        <dd style="width: auto;">
+            <input id="create_proposition_end_date" type="text" />
+        </dd>
+    </dl>
+    <p>
+        <div>
+            <label id="create_proposition_validation">
+                Начальная дата должна быть меньше конечной</label>
+        </div>
+    </p>
+</div>
+
+<div id="unsaved_data_alert" title="Замечание" style="display: none;">
+    У вас есть несохраненные данные!
+</div>
+
+<br />
+
+<table>
+<tr>
+    <td>
+        <div id="edit_product" data-bind="if: OrderEditEnable">
+            <fieldset class="niceform edit-product-form">
+                <legend>Редактировать продукт</legend>
+                <dl>
+                    <dt>
+                        <label>
+                            Название:
+                        </label>
+                    </dt>
+                    <dd>
+                        <input type="text" id="edit_product_title" class="edit_create_product_input" data-bind="value: ChosenProduct().Title"/>
+                    </dd>
+                    <dd>
+                        <label id="edit_product_validation_title">
+                        </label>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            Описание:
+                        </label>
+                    </dt>
+                    <dd>
+                        <textarea rows="10" cols="45" type="text" name="Summary" id="edit_product_summary"
+                                  class="edit_create_product_input" data-bind="value: ChosenProduct().Summary"></textarea>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            Цена:
+                        </label>
+                    </dt>
+                    <dd>
+                        <input type="text" name="Price" id="edit_product_price" class="edit_create_product_input" data-bind="value: ChosenProduct().Price"/>
+                        <label id="edit_product_validation_price">
+                            Введите правильную цену</label>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            Комплекс:
+                        </label>
+                    </dt>
+                    <dd>
+                        <input type="checkbox" id="edit_product_is_complex" data-bind="value: ChosenProduct().isComplex"/>
+                    </dd>
+                </dl>
+                <div>
+                    <button data-bind="click: SaveProduct" class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Сохранить</button>
+                    <button data-bind="click: CancelProduct" class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Отмена</button>
+                </div>
+            </fieldset>
+        </div>
+    </td>
+    <td>
+        <div id="continuous_proposition_parent">
+            <div class="wide-accordion" data-bind="foreach: ChosenContinuousProposition().DayPropositions, accordion: {}">
+                <h3 data-bind="html: Date(), attr: { dayPropositionId: Id()}"></h3>
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <a title="Добавить продукт" href="#" data-bind="click: viewModel.AddProduct">
+                                    <img style="width: 20px;" src="../Scripts/images/add.png"></a>
+                            </tr>
+                            <tr data-bind="foreach: Products()">
+                                <td>
+                                    <b data-bind="html: Title()"></b>
+                                    <br />
+                                    <h6 data-bind="html: Summary()">
+                                    </h6>
+                                </td>
+                                <td>
+                                    <h6 data-bind="html: Price()">
+                                    </h6>
+                                </td>
+                                <td>
+                                    <a title="Редактировать" href="#" data-bind="click: viewModel.EditProduct">
+                                        <img style="width: 20px;" src="../Scripts/images/edit.png"></a>
+                                </td>
+                                <td>
+                                    <a title="Удалить" href="#" data-bind="click: viewModel.DeleteProduct">
+                                        <img style="width: 20px;" src="../Scripts/images/delete.png"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </td>
+    </tr>
+</table>

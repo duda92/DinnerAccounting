@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
+using DA.Dinners.Model;
 
-namespace DataModel.Abstract
+namespace DA.Dinners.Domain.Abstract
 {
-    public interface IProductRepository
+    public interface IProductRepository : IDisposable
     {
-        IQueryable<Product> Products { get; }
-        void Add(Product product);
-        void EditOrder(Product product);
-        void DeleteOrder(Product product);
+        IQueryable<Product> All { get; }
+
+        IQueryable<Product> AllIncluding(params Expression<Func<Product, object>>[] includeProperties);
+
+        Product Find(int id);
+
+        void InsertOrUpdate(Product product);
+
+        void Delete(int id);
+
+        void Save();
     }
 }

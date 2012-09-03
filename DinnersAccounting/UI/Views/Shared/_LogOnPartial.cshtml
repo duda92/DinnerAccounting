@@ -1,0 +1,11 @@
+﻿@{
+    if (this.User.Identity.IsAuthenticated)
+    {
+    <text>Welcome <strong>@User.Identity.Name</strong>! | @Html.ActionLink("Выйти", "LogOut", "Account", new { returnUrl = Context.Request.Url }, null)</text><br />
+    }
+    else
+    {
+    @Html.ActionLink("Войти", "LogOn", "Account", new { returnUrl = Context.Request.Url }, null)
+    }
+
+}

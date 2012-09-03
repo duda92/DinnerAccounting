@@ -1,0 +1,478 @@
+﻿/******************** _Layout ************************/
+*
+{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+html
+{
+    height: 100%;
+}
+body
+{
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #f7e482;
+}
+HTML
+{
+    overflow: auto;
+}
+
+.footer, .push
+{
+    height: 60px;
+    clear: both;
+}
+.wrapper
+{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+}
+
+.footer
+{
+    text-align: center;
+    font-family: Constantia, Georgia, serif;
+    text-align: center;
+}
+
+header
+{
+    float: left;
+    width: 100%;
+    border-bottom: 1px dotted #5D5A53;
+    margin-bottom: 10px;
+}
+header h1
+{
+    font-size: 25px;
+    float: left;
+    padding: 45px 45px 5px 45px;
+}
+
+#logindisplay
+{
+    float: right;
+}
+
+#main
+{
+    overflow: hidden;
+    padding: 0px 50px 55px 50px;
+    float: left;
+}
+/******************** End _Layout ************************/
+/******************** Top Navigation ************************/
+ul#navlist
+{
+    float: right;
+    margin-right: 100;
+}
+
+ul#navlist li
+{
+    display: inline;
+}
+
+ul#navlist li a
+{
+    border-left: 1px dotted #8A8575;
+    border-right: 1px dotted #8A8575;
+    border-top: 1px dotted #8A8575;
+    border-bottom: 1px dotted #8A8575;
+    padding: 10px;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+    float: left;
+}
+
+ul#navlist li a:hover
+{
+    background-color: #4B0082;
+    color: #008000;
+}
+ul#navlist li a:active
+{
+    color: #ffd700;
+}
+ul#navlist li a:visited
+{
+    color: #000000;
+}
+/********************* End top navigation ***************************/
+
+/*********************************** Admin menu panel ***********************************/
+.edit_create_product_input
+{
+    width: 380px;
+}
+
+img
+{
+    vertical-align: auto;
+}
+#addbtn
+{
+    width: 30px;
+}
+#date_select
+{
+    margin-bottom: 30px;
+    height: 20px;
+    width: 200px;
+}
+.hidden-field
+{
+    visibility: hidden;
+}
+.edit-product-form, .create-product-form
+{
+    width: 590px;
+}
+
+.wide-accordion
+{
+    width: 700px;
+}
+/*********************************** End Admin menu panel ***********************************/
+/*********************************** Balance panel ***********************************/
+.history
+{
+    width: 100%;
+    min-width: 500px;
+    text-align: center;
+    background: #F2F2E6 none repeat scroll 0 0;
+}
+
+table caption
+{
+    padding-bottom: 10px;
+}
+
+.balance
+{
+    width: 100%;
+    vertical-align: central;
+    horiz-align: center;
+    padding: 0px;
+}
+
+#history_container
+{
+    width: 100%;
+    vertical-align: central;
+    horiz-align: center;
+    padding: 0px;
+}
+
+.balancetxt
+{
+    font-size: medium;
+    font-family: sans-serif;
+    font-style: normal;
+    text-align: center;
+}
+.tblbalacne
+{
+    width: 100%;
+    margin-left: -10px;
+}
+
+.tdhistory
+{
+    width: 60%;
+    text-align: center;
+    horiz-align: center;
+    padding-left: 300px;
+}
+#tdorder
+{
+    width: 30%;
+    vertical-align: central;
+    horiz-align: center;
+}
+/*********************************** End Balance panel ***********************************/
+/*********************************** Admin Balance panel ***********************************/
+.people_list_div
+{
+    width: 300;
+    padding-right: 100px;
+    vertical-align: top;
+}
+.operations_div
+{
+    width: 700px;
+    visibility: hidden;
+}
+.people_list_ol:hover
+{
+    cursor: pointer;
+}
+#feedback
+{
+    font-size: 1.4em;
+}
+#people_list_ol .ui-selecting
+{
+    background: #0F0;
+}
+#people_list_ol .ui-selected
+{
+    background: #090;
+    color: white;
+    font-size: xx-large;
+}
+#people_list_ol
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#people_list_ol li
+{
+    margin: 3px;
+    padding: 0.4em;
+    font-size: 1.4em;
+    height: 18px;
+    width: 300px;
+}
+
+#adminopsdiv
+{
+    margin-top: 25px;
+}
+
+#btnconainer
+{
+    align: center;
+}
+
+#cancel_operation_button
+{
+    margin-right: 130px;
+}
+
+/***********************************  End Admin Balance panel ***********************************/
+/***********************************  Orders  panel ***********************************/
+.order
+{
+    position: relative;
+    display: inline-block;
+    width: 600px;
+    left: 50px;
+    background: #e0e0e0;
+}
+
+#statusstring
+{
+    margin-left: 15px;
+}
+.order_header
+{
+    height: 30px;
+    text-align: center;
+    line-height: 1.75;
+    margin-top: 0px;
+}
+
+.popup-order
+{
+    min-width: 500;
+}
+
+.link-button
+{
+    float: right;
+    height: 30px;
+    width: 150px;
+}
+
+.order-content
+{
+    min-height: 100px;
+}
+.product-title, .product-quantity, .product-price, .user-div, .order-div, #proposition
+{
+    vertical-align: top;
+    padding-right: 20px;
+}
+.product-title
+{
+    width: 300px;
+}
+.product-quantity, .product-price
+{
+    width: 55px;
+}
+.delete-link
+{
+    width: 30px;
+}
+
+.change_order_panel
+{
+    position: absolute;
+    right: 20px;
+}
+
+.user_div
+{
+    width: 150px;
+    border-right: 1px solid Green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.accordion
+{
+    width: 500px;
+}
+
+/*********************************** end Orders  panel ***********************************/
+
+#userinfo
+{
+    padding: 20px;
+}
+#listofprods
+{
+    margin: 1em;
+}
+#ddinputs
+{
+    width: auto;
+}
+#edit_product_id, #edit_product_proposition_id, #unsaved_data_alert, #operations_div input#person_id
+{
+    display: none;
+}
+
+.day-proposition
+{
+    margin-left: 150;
+}
+
+#edit_product_validation_title, #edit_product_validation_price, #create_product_validation_title, #create_product_validation_price, #enter_sum_validation_title, #create_proposition_validation, #date_range_select_validation
+{
+    color: Red;
+    display: none;
+}
+
+#deletebtn
+{
+    width: 20px;
+}
+#pricelbl
+{
+    margin-left: 50px;
+}
+#btnaddcontainer
+{
+    display: inline-block;
+    margin-left: 50px;
+}
+#btnadd
+{
+    width: 40px;
+    vertical-align: middle;
+}
+#dates
+{
+    min-width: 500px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#otbl
+{
+    width: 100%;
+}
+
+#startenddates
+{
+    display: inline-block;
+}
+
+#orders_list
+{
+    display: none;
+    vertical-align: top;
+}
+#deletepropBtn
+{
+    width: 30px;
+}
+
+#proposition
+{
+    width: 600px;
+    display: none;
+    padding-left: 10px;
+}
+ul
+{
+    list-style-type: none;
+}
+
+li
+{
+    text-decoration: none;
+}
+.delete_link_in_order_div
+{
+    width: 1%;
+    display: inline-block;
+}
+
+.product_title_in_order_div, .product_price_in_order_div, .product_quantity_in_order_div, .delete_link_in_order_div
+{
+    vertical-align: middle;
+}
+
+.change_order_panel
+{
+    padding-bottom: 20px;
+}
+
+fieldset
+{
+    margin-top: 30px;
+}
+
+/***********************************  End Orders panel ***********************************/
+
+.inline-block
+{
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    zoom: 1;
+    *display: inline;
+    _height: 250px;
+}
+/***********************************  End Orders panel ***********************************/
+
+.otd
+{
+    width: 600px;
+}
+
+#continuous-proposition-parent
+{
+    width: 50em;
+}
+#CreateReportbtn {
+    float: left;
+}
+#LastWeek,#LastMonth,#LastYear,#CustomPeriod {
+    margin-top: 5px;
+}

@@ -1,0 +1,53 @@
+@model IEnumerable<DA.Dinners.Domain.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Person
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            OrderDetail
+        </th>
+        <th>
+            Statuses
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr >
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.Person.DomainId).ToString()
+        </td>
+        <td>
+			@String.Format("{0:g}", item.Date)
+        </td>
+        <td>
+			@(item.OrderDetail == null ? "None" : item.OrderDetail.Count.ToString())
+        </td>
+        <td>
+			@(item.Statuses == null ? "None" : item.Statuses.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+

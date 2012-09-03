@@ -5,10 +5,14 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Ninject;
-using Moq;
-using DataModel.Abstract;
-using DataModel.Concrete;
+using System.Data.Entity;
+using UI.Concrete;
+using Microsoft.Practices.Unity;
+using System.Security.Principal;
+using System.Threading;
+using DA.Dinners.Domain;
+using DA.Dinners.Domain.Concrete;
+using UI.App_Start;
 
 namespace UI
 {
@@ -16,21 +20,13 @@ namespace UI
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : System.Web.HttpApplication
     {
-
-        private IKernel _kernel = new StandardKernel();
-
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            Mock<IProductRepository> products_mock = new Mock<IProductRepository>();
-
-            _kernel.Bind<IProductRepository>().To<FakeProductRepository>().InSingletonScope();
-            
-
+            Bootstrapper.Initialise();
         }
     }
 }

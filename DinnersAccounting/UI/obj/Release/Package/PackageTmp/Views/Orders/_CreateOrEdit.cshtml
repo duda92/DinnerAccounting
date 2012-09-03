@@ -1,0 +1,34 @@
+@model DA.Dinners.Domain.Order
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Person)
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Person.PersonId, ((IEnumerable<DA.Dinners.Domain.Person>)ViewBag.PossiblePersons).Select(option => new SelectListItem
+    {
+        Text = Html.DisplayTextFor(_ => option.DomainId).ToString(),
+        Value = option.PersonId.ToString(),
+        Selected = (Model != null) && (option.PersonId == Model.Person.PersonId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.Person.PersonId)
+
+@*    @Html.DropDownListFor(model => model.Person.PersonId, ((IEnumerable<DA.Dinners.Domain.Person>)ViewBag.PossiblePersons).Select(option => new SelectListItem
+    {
+        Text = Html.DisplayTextFor(_ => option.DomainId).ToString(),
+        Value = option.PersonId.ToString(),
+        Selected = (Model != null) && (option.PersonId == Model.Person.PersonId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.Person.PersonId)
+*@
+    @Html.EditorFor(model => model.Date)
+    @Html.ValidationMessageFor(model => model.Date)
+
+    @Html.EditorFor(model => model.Statuses)
+    @Html.ValidationMessageFor(model => model.Date)
+
+
+
+</div>
+

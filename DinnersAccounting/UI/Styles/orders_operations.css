@@ -1,0 +1,12 @@
+﻿.main-widget {
+    display: inline-block;
+    
+}
+
+.day-proposition {
+    position: relative; display: inline-block; width: 400px;
+}
+
+.orders-table {
+    display: inline-block; width:600; vertical-align: top;
+}

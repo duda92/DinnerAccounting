@@ -1,0 +1,26 @@
+@model DA.Dinners.Domain.OrderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OrderDetail</legend>
+
+    <div class="display-label">Quantity</div>
+    <div class="display-field">@Model.Quantity</div>
+
+    <div class="display-label">Order</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Order).ToString()</div>
+
+    <div class="display-label">Product</div>
+    <div class="display-field">@(Model.Product == null ? "None" : Model.Product.Title)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderDetailId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

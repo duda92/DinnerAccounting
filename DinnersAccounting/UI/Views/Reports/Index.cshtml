@@ -1,0 +1,42 @@
+﻿@using UI.Models
+@model ReportParams
+<script language="javascript" type="text/javascript">
+    function PageScript() {
+        $('#custom').css('visibility', 'hidden');
+        $('input[name=GetReportType]').click(function () {
+            if ($('input[name=GetReportType]:checked').val() == "CustomPeriod") {
+                $('#custom').css('visibility', 'visible');
+
+            } else {
+                $('#custom').css('visibility', 'hidden');
+            }
+        });
+    }
+</script>
+@using (Html.BeginForm("GenerateExcel", "Reports"))
+{
+    <div>
+        <span>Отчёт за:</span><br />
+        @Html.RadioButtonFor(model => model.GetReportType, GetReportType.LastWeek, new { @checked = "checked", id = "LastWeek" })<label>Последнюю
+            неделю
+        </label>
+        <br />
+        @Html.RadioButtonFor(model => model.GetReportType, GetReportType.LastMonth, new { id = "LastMonth" })<label>Последний
+            месяц</label><br />
+        @Html.RadioButtonFor(model => model.GetReportType, GetReportType.LastYear, new { id = "LastYear" })<label>Последний
+            год</label><br />
+        @Html.RadioButtonFor(model => model.GetReportType, GetReportType.CustomPeriod, new { id = "CustomPeriod" })<label>За
+            период
+        </label>
+        <br />
+        <div id="custom">
+            <label>
+                C</label>
+            @Html.EditorFor(model => model.StartDate)
+            <label>
+                По</label>@Html.EditorFor(model => model.EndDate)
+        </div>
+        <input id="CreateReportbtn" class=" ui-button ui-widget ui-state-default ui-corner-all "
+            type="submit" value="Создать" />
+    </div>
+}

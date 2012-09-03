@@ -1,0 +1,32 @@
+@model DA.Dinners.Domain.ProductProposition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ProductProposition</legend>
+
+    <div class="display-label">NextPropositionId</div>
+    <div class="display-field">@Model.NextPropositionId</div>
+
+    <div class="display-label">PrevPropositionId</div>
+    <div class="display-field">@Model.PrevPropositionId</div>
+
+    <div class="display-label">Products</div>
+    <div class="display-field">@(Model.Products == null ? "None" : Model.Products.Count.ToString())</div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.StartDate)</div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.EndDate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductPropositionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,5 @@
+c:\wherever\UI.dll
+c:\wherever\UI.pdb
+D:\Projects\DinnersAccounting\UI\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\DinnersAccounting\UI\obj\Release\UI.dll
+D:\Projects\DinnersAccounting\UI\obj\Release\UI.pdb

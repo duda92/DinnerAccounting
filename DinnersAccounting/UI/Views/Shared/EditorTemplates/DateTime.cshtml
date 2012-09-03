@@ -1,0 +1,17 @@
+﻿@inherits System.Web.Mvc.WebViewPage<System.DateTime?>
+
+<script language="javascript" type="text/javascript">
+    function MvcTemplateScript() {
+        $(".datePicker").datepicker({ dateFormat: "dd.mm.yy" });
+    }
+</script>
+
+@{
+if(Model != null){
+    @Html.TextBox("", (Model.Value.ToShortDateString()), new { @class = "datePicker" })
+    }
+    else
+ {
+    @Html.TextBox("", (DateTime.Now.ToShortDateString()), new { @class = "datePicker" })
+ }
+}

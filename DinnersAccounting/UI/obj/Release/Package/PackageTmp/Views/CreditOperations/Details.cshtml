@@ -1,0 +1,32 @@
+@model DA.Dinners.Domain.CreditOperation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CreditOperation</legend>
+
+    <div class="display-label">PersonAccount</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.PersonAccount).ToString()</div>
+
+    <div class="display-label">Quantity</div>
+    <div class="display-field">@Model.Quantity</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">Order</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Order).ToString()</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AccountOperationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

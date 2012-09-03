@@ -1,0 +1,32 @@
+@model DA.Dinners.Domain.Order
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">Person</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Person).ToString()</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">OrderDetail</div>
+    <div class="display-field">@(Model.OrderDetail == null ? "None" : Model.OrderDetail.Count.ToString())</div>
+
+    <div class="display-label">Statuses</div>
+    <div class="display-field">@(Model.Statuses == null ? "None" : Model.Statuses.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

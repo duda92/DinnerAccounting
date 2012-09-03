@@ -1,0 +1,29 @@
+﻿@model DA.Dinners.Model.Product
+@using (Ajax.BeginForm("Edit", "api/Product", new AjaxOptions { }))
+{
+<fieldset>
+    <legend>Edit product</legend>
+    <div>
+        @Html.LabelFor(m => m.Title)
+        @Html.TextAreaFor(m => m.Title)
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Summary)
+        @Html.TextAreaFor(m => m.Summary)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Price)
+        @Html.EditorFor(m => m.Price)
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.isComplex)
+        @Html.EditorFor(m => m.isComplex)
+    </div>
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+</fieldset>
+    <input type="submit" value="Edit product" />
+}

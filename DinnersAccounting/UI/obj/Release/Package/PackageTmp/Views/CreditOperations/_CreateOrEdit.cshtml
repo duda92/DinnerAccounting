@@ -1,0 +1,50 @@
+@model DA.Dinners.Domain.CreditOperation
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Quantity)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Quantity)
+    @Html.ValidationMessageFor(model => model.Quantity)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Description)
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Date)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Date)
+    @Html.ValidationMessageFor(model => model.Date)
+</div>
+
+<div class="editor-label">
+    PersonAccount
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.PersonAccountId, ((IEnumerable<DA.Dinners.Domain.PersonAccount>)ViewBag.PossiblePersonAccounts).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.PersonAccountId.ToString(),
+        Selected = (Model != null) && (option.PersonAccountId == Model.PersonAccountId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.PersonAccountId)
+</div>
+<div class="editor-label">
+    Order
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.OrderId, ((IEnumerable<DA.Dinners.Domain.Order>)ViewBag.PossibleOrders).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.OrderId.ToString(),
+        Selected = (Model != null) && (option.OrderId == Model.OrderId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.OrderId)
+</div>

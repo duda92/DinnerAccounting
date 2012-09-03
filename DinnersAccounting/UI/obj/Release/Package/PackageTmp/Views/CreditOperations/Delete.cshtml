@@ -1,0 +1,35 @@
+@model DA.Dinners.Domain.CreditOperation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CreditOperation</legend>
+
+    <div class="display-label">PersonAccount</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.PersonAccount).ToString()</div>
+
+    <div class="display-label">Quantity</div>
+    <div class="display-field">@Model.Quantity</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">Order</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Order).ToString()</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

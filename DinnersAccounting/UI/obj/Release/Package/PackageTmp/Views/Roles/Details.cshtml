@@ -1,0 +1,23 @@
+@model DA.Dinners.Domain.Role
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Role</legend>
+
+    <div class="display-label">RoleName</div>
+    <div class="display-field">@Model.RoleName</div>
+
+    <div class="display-label">Persons</div>
+    <div class="display-field">@(Model.Persons == null ? "None" : Model.Persons.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RoleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,19 @@
+﻿@model UI.Models.LogOnModel
+
+<h2>Войти</h2>
+@using (Html.BeginForm())
+{
+    
+    @:Логин: <br />
+    @Html.EditorFor(m => m.UserName)
+    @Html.ValidationMessageFor(m => m.UserName)<br />
+
+    @:Пароль: <br />
+    @Html.PasswordFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password)<br />
+
+    @:Запомнить меня
+    @Html.EditorFor(m => m.RememberMe)<br />
+    
+    <input type="submit" value = "Войти"/>
+}

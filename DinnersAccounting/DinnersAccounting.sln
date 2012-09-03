@@ -1,32 +1,55 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.Dinners.Domain", "Domain\DA.Dinners.Domain.csproj", "{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{B91B083C-0921-4FA6-BB57-117F1F909A4D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Tests", "UI.Tests\UI.Tests.csproj", "{914F13CD-8811-410C-9E3E-14901CD2AA44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.Dinners.UI", "UI\DA.Dinners.UI.csproj", "{B91B083C-0921-4FA6-BB57-117F1F909A4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Dev|Any CPU = Dev|Any CPU
+		Dev|Mixed Platforms = Dev|Mixed Platforms
+		Dev|x86 = Dev|x86
 		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Dev|Mixed Platforms.ActiveCfg = Dev|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Dev|Mixed Platforms.Build.0 = Dev|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Dev|x86.ActiveCfg = Dev|Any CPU
 		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{02C6CD71-BD81-439E-BBC7-E67D1C08E9D7}.Release|x86.ActiveCfg = Release|Any CPU
 		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Dev|Mixed Platforms.ActiveCfg = Dev|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Dev|x86.ActiveCfg = Dev|Any CPU
 		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{914F13CD-8811-410C-9E3E-14901CD2AA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{914F13CD-8811-410C-9E3E-14901CD2AA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{914F13CD-8811-410C-9E3E-14901CD2AA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{914F13CD-8811-410C-9E3E-14901CD2AA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B91B083C-0921-4FA6-BB57-117F1F909A4D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

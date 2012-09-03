@@ -1,0 +1,29 @@
+@model DA.Dinners.Domain.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">Person</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Person).ToString()</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">OrderDetail</div>
+    <div class="display-field">@(Model.OrderDetail == null ? "None" : Model.OrderDetail.Count.ToString())</div>
+
+    <div class="display-label">Statuses</div>
+    <div class="display-field">@(Model.Statuses == null ? "None" : Model.Statuses.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

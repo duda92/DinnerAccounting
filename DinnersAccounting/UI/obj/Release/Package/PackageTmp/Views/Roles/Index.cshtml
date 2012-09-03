@@ -1,0 +1,41 @@
+@model IEnumerable<DA.Dinners.Domain.Role>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            RoleName
+        </th>
+        <th>
+            Persons
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoleID })
+        </td>
+        <td>
+			@item.RoleName
+        </td>
+        <td>
+			@(item.Persons == null ? "None" : item.Persons.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+

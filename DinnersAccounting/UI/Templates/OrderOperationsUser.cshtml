@@ -1,0 +1,14 @@
+﻿<div>
+    <div class="inline-block">
+        <p id="statusstring">
+            Статус:
+            <label data-bind="html: text_current_status" />
+        </p>
+    </div>
+    <button class="inline-block link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+        data-bind="click: viewModel.SaveOrder">
+        Подтвердить</button>
+    <button class="inline-block link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+        data-bind="click: viewModel.CancelEditOrder">
+        Отмена</button>
+</div>

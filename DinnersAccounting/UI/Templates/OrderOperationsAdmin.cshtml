@@ -1,0 +1,17 @@
+﻿<div>
+    <div class="inline-block">
+        Статус:
+        <label data-bind="html: text_current_status()">
+        </label>
+    </div>
+    <div class="inline-block" data-bind="ifnot: viewModel.HasOrderChanges()">
+        <button class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                data-bind="click: viewModel.EditOrder">Изменить </button>
+    </div>
+    <div class="inline-block" data-bind="if: viewModel.HasOrderChanges() && viewModel.ChosenOrder().Id() == Id()">
+        <button class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                data-bind="click: viewModel.SaveOrder">Подтвердить</button>
+        <button class="link-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                data-bind="click: viewModel.CancelEditOrder">Отмена</button>
+    </div>
+</div>

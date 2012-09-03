@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DADinnersUIContext-Web.config Connection String" description="DADinnersUIContext Connection String used in web.config by the application to access the database." defaultvalue="Data Source=bdudnik;MultipleActiveResultSets=true;Initial Catalog=DinnerAccounting_Dev;User Id=UNIVERSE\bdudnik;Password=Dudadudl1#;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Projects\\DinnersAccounting\\UI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DADinnersUIContext']/@connectionString" />
+  </parameter>
+</parameters>

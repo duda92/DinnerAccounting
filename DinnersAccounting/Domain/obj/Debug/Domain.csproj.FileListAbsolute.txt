@@ -3,8 +3,11 @@ D:\Practice\DinnersAccounting\DinnersAccounting\DataModel\bin\Debug\DataModel.pd
 D:\Practice\DinnersAccounting\DinnersAccounting\DataModel\obj\Debug\ResolveAssemblyReference.cache
 D:\Practice\DinnersAccounting\DinnersAccounting\DataModel\obj\Debug\DataModel.dll
 D:\Practice\DinnersAccounting\DinnersAccounting\DataModel\obj\Debug\DataModel.pdb
+D:\Practice\DinnersAccounting\DinnersAccounting\Domain\bin\Debug\DataModel.dll.config
 D:\Practice\DinnersAccounting\DinnersAccounting\Domain\bin\Debug\DataModel.dll
 D:\Practice\DinnersAccounting\DinnersAccounting\Domain\bin\Debug\DataModel.pdb
+D:\Practice\DinnersAccounting\DinnersAccounting\Domain\bin\Debug\EntityFramework.dll
+D:\Practice\DinnersAccounting\DinnersAccounting\Domain\bin\Debug\EntityFramework.xml
 D:\Practice\DinnersAccounting\DinnersAccounting\Domain\obj\Debug\ResolveAssemblyReference.cache
 D:\Practice\DinnersAccounting\DinnersAccounting\Domain\obj\Debug\DataModel.dll
 D:\Practice\DinnersAccounting\DinnersAccounting\Domain\obj\Debug\DataModel.pdb

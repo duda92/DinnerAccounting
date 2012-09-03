@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="B91B083C-0921-4FA6-BB57-117F1F909A4D" ModuleId="DA.Dinners.UI" />
+  <Module PersistentId="02C6CD71-BD81-439E-BBC7-E67D1C08E9D7" ModuleId="DA.Dinners.Domain" />
+</Modules>

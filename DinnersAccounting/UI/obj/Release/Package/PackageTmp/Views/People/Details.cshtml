@@ -1,0 +1,32 @@
+@model DA.Dinners.Domain.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Person</legend>
+
+    <div class="display-label">DomainId</div>
+    <div class="display-field">@Model.DomainId</div>
+
+    <div class="display-label">PersonInfo</div>
+    <div class="display-field">@(Model.PersonInfo == null ? "None" : Model.PersonInfo.Name)</div>
+
+    <div class="display-label">Roles</div>
+    <div class="display-field">@(Model.Roles == null ? "None" : Model.Roles.Count.ToString())</div>
+
+    <div class="display-label">PersonAccount</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.PersonAccount).ToString()</div>
+
+    <div class="display-label">Orders</div>
+    <div class="display-field">@(Model.Orders == null ? "None" : Model.Orders.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
